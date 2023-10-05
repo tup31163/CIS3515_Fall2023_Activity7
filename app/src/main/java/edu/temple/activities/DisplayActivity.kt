@@ -11,18 +11,19 @@ import androidx.activity.result.contract.ActivityResultContracts
 const val RESULT_KEY = "size"
 class DisplayActivity : AppCompatActivity() {
 
-    // TODO Step 3: Use returned value for lyricsDisplayTextView text size
-
     private lateinit var lyricsDisplayTextView: TextView
     private lateinit var textSizeSelectorButton: Button
 
+
     val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            it.data?.apply {
-
+            val apply = it.data?.apply {
+                lyricsDisplayTextView.textSize = getFloatExtra(RESULT_KEY, 0.0F)
             }
         }
     }
+
+    // TODO Step 3: Use returned value for lyricsDisplayTextView text size
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
