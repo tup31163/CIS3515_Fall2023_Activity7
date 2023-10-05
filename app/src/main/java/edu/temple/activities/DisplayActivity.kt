@@ -18,12 +18,13 @@ class DisplayActivity : AppCompatActivity() {
     val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             it.data?.apply {
+                // TODO Step 3: Use returned value for lyricsDisplayTextView text size
                 lyricsDisplayTextView.textSize = getFloatExtra(RESULT_KEY, 0.0F)
             }
         }
     }
 
-    // TODO Step 3: Use returned value for lyricsDisplayTextView text size
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
